@@ -1,0 +1,50 @@
+DWAPlannerROS:
+  # for details see: https://wiki.ros.org/dwa_local_planner
+  odom_topic: odom
+
+# Robot Configuration Parameters
+  max_vel_x: 0.3
+  min_vel_x: -0.1
+
+  max_vel_y: 0.0            # 0 for non-holonomic robot
+  min_vel_y: 0.0            # 0 for non-holonomic robot
+
+# The velocity when robot is moving in a straight line
+  max_trans_vel:  0.3
+  min_trans_vel:  0.05
+
+  max_rot_vel: 1.6
+  min_rot_vel: 0.2
+
+  acc_lim_x: 1.0
+  acc_lim_y: 0.0
+  acc_lim_theta: 3.2 
+
+# Goal Tolerance Parametes
+  xy_goal_tolerance: 0.1
+  yaw_goal_tolerance: 0.17
+  latch_xy_goal_tolerance: false
+
+# Forward Simulation Parameters
+  sim_time: 3.0                    # The amount of time to forward-simulate trajectories in seconds
+  sim_granularity: 0.025           # The step size, in meters, to take between points on a given trajectory
+  vx_samples: 20                   # The number of samples to use when exploring the x velocity space
+  vy_samples: 0                    # The number of samples to use when exploring the y velocity space
+  vtheta_samples: 40               # The number of samples to use when exploring the theta velocity space
+  controller_frequency: 10.0       # The frequency at which this controller will be called in Hz
+
+# Trajectory Scoring Parameters
+  path_distance_bias: 38.0         # The weighting for how much the controller should stay close to the path it was given 
+  goal_distance_bias: 20.0         # The weighting for how much the controller should attempt to reach its local goal, also controls speed
+  occdist_scale: 0.04              # The weighting for how much the controller should attempt to avoid obstacles
+  forward_point_distance: 0.325    # The distance from the center point of the robot to place an additional scoring point, in meters
+  stop_time_buffer: 0.2            # The amount of time that the robot must stop before a collision in order for a trajectory to be considered valid in seconds
+  scaling_speed: 0.25              # The absolute value of the velocity at which to start scaling the robot's footprint, in m/s
+  max_scaling_factor: 0.2          # The maximum factor to scale the robot's footprint by
+
+# Oscillation Prevention Parameters
+  oscillation_reset_dist: 0.05    # How far the robot must travel in meters before oscillation flags are reset
+
+# Debugging
+  publish_traj_pc : true
+publish_cost_grid_pc: true

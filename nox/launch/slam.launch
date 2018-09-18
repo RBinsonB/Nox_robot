@@ -1,0 +1,50 @@
+<launch>
+				<!--  ************** Odometry ***************  -->
+	<param name="robot_description" command="cat $(find ptype_wa_description)/urdf/ptype_wa.urdf" />
+	
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<rosparam param="source_list">["odom_comm/joint_states"] </rosparam>
+	</node>
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />				
+		
+	<node name="odom_comm" pkg="ptype_wa" type="odom_comm" />
+	<node name="odom_broadcaster_ptype_wa" pkg="ptype_wa" type="odom_broadcaster_ptype_wa" />
+	
+	
+				<!--  ************** Sensors ***************  -->
+	<node name="urg_node" pkg="urg_node" type="urg_node" output="screen">
+		<param name="ip_address" value="192.168.1.70"/>
+		<param name="frame_id" value="/base_laser"/>
+	</node>
+	
+	
+				<!--  ************** gmapping ***************  -->
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen"/>
+	
+	
+	        <!--  ************** Navigation ***************  -->
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  	  	<rosparam file="$(find ptype_wa_control)/cfg/costmap_common_params.yaml" command="load" ns="global_costmap" />
+  	 	<rosparam file="$(find ptype_wa_control)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
+  		<rosparam file="$(find ptype_wa_control)/cfg/local_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find ptype_wa_control)/cfg/global_costmap_params.yaml" command="load" />
+  		<rosparam file="$(find ptype_wa_control)/cfg/teb_local_planner_params.yaml" command="load" />
+
+		<param name="base_global_planner" value="global_planner/GlobalPlanner" />
+		<param name="planner_frequency" value="1.0" />
+		<param name="planner_patience" value="5.0" />
+
+		<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+		<param name="controller_frequency" value="5.0" />
+		<param name="controller_patience" value="15.0" />
+
+      <param name="clearing_rotation_allowed" value="false" /> <!-- Our carlike robot is not able to rotate in place -->
+	</node>
+		
+	<node name="ptype_wa_controller" pkg="ptype_wa_control" type="ptype_wa_controller" output="screen" />
+
+	
+				<!--  ************* Visualisation **************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ptype_wa_control)/cfg/rviz_slam.rviz" required="true" />
+
+</launch>

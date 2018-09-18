@@ -1,0 +1,7 @@
+<launch>
+	<include file="$(find nox)/launch/nox_bringup.launch" />
+	<include file="$(find nox)/launch/nox_navigation.launch" />
+
+					<!--  ************** gmapping ***************  -->
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen"/>
+</launch>
