@@ -1,5 +1,5 @@
 # Nox Robot project
-Nox is a nice (and time-consuming) robot which uses SLAM (ROS) with a Kinect to navigate in its environment. It is powered by ROS running on an Raspberry Pi 3B and an Arduino that controls two motors with encoders.
+Nox is a nice (and time-consuming) robot which uses SLAM (ROS) with a Kinect to navigate in its environment. It is powered by ROS running on a Raspberry Pi 3B and an Arduino that controls two motors with encoders.
 
 # README IN PROGRESS - MORE EXPLANATION TO COME
 Information can be found in the [Hackster page of the project](https://www.hackster.io/robinb/nox-a-house-wandering-robot-ros-652315).
