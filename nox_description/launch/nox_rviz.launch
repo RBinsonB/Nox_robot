@@ -1,0 +1,11 @@
+<launch>
+	<arg name="gui" default="True" />
+	<param name="use_gui" value="$(arg gui)"/>
+	<param name="robot_description" command="cat $(find nox_description)/urdf/nox.urdf" />
+	
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find nox_description)/urdf.rviz" required="true" />
+</launch>

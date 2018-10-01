@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+	<robot name="nox">
+		<link name="base_link">
+			<visual>
+				<origin rpy="1.57075 0 -1.57075" xyz="0.095 0.1664 0.05"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/base.STL" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="black">
+       			<color rgba="0.1 0.1 0.1 1"/>
+     			</material>
+			</visual>
+		</link>
+
+		<link name="motor_left">
+			<visual>
+				<origin rpy="-1.57075 0 0" xyz="-0.02 -0.061 0"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/motor.STL" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="grey">
+       			<color rgba="0.3 0.3 0.3 1"/>
+     			</material>
+			</visual>
+		</link>
+
+		<joint name="base_link_to_motor_left" type="fixed">
+			<parent link="base_link"/>
+			<child link="motor_left"/>
+			<origin xyz="0 0.07 0.059"/>
+		</joint>
+		
+		<link name="motor_right">
+			<visual>
+				<origin rpy="-1.57075 0 3.14159" xyz="0.02 0.061 0"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/motor.STL" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="grey"/>
+			</visual>
+		</link>
+
+		<joint name="base_link_to_motor_right" type="fixed">
+			<parent link="base_link"/>
+			<child link="motor_right"/>
+			<origin xyz="0 -0.07 0.059"/>
+		</joint>
+		
+		<link name="wheel_left">
+			<visual>
+				<origin rpy="1.57075 0 0" xyz="-0.04 0.02 -0.04"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="wheel_color">
+       			<color rgba="0.06 0.25 0.25 1"/>
+     			</material>
+			</visual>
+		</link>	
+			
+		<joint name="motor_left_to_wheel_left" type="continuous">
+			<parent link="motor_left"/>
+			<child link="wheel_left"/>
+			<origin xyz="0 0.023 -0.019"/>
+			<axis xyz="0 1 0"/>
+		</joint>
+		
+		<link name="wheel_right">
+			<visual>
+				<origin rpy="1.57075 0 0" xyz="-0.04 0.02 -0.04"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="wheel_color"/>
+			</visual>
+		</link>	
+			
+		<joint name="motor_right_to_wheel_right" type="continuous">
+			<parent link="motor_right"/>
+			<child link="wheel_right"/>
+			<origin xyz="0 -0.023 -0.019"/>
+			<axis xyz="0 1 0"/>
+		</joint>
+		
+		<link name="support_wheel_left">
+			<visual>
+				<origin rpy="-1.57075 0 1.57075" xyz="-0.021 -0.021 0"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/support_wheel.STL" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="transparent_grey">
+       			<color rgba="0.25 0.25 0.25 0.7"/>
+     			</material>
+			</visual>
+		</link>	
+			
+		<joint name="base_link_to_support_wheel_left" type="fixed">
+			<parent link="base_link"/>
+			<child link="support_wheel_left"/>
+			<origin xyz="-0.124 0.039 0.05"/>
+		</joint>
+		
+		<link name="support_wheel_right">
+			<visual>
+				<origin rpy="-1.57075 0 1.57075" xyz="-0.021 -0.021 0"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/support_wheel.STL" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="transparent_grey"/>
+			</visual>
+		</link>	
+			
+		<joint name="base_link_to_support_wheel_right" type="fixed">
+			<parent link="base_link"/>
+			<child link="support_wheel_right"/>
+			<origin xyz="-0.124 -0.039 0.05"/>
+		</joint>
+		
+		<link name="kinect">
+			<visual>
+				<origin rpy="0 0 1.57075" xyz="0.03 -0.14 0.04"/>
+				<geometry>
+					<mesh filename="package://nox_description/meshes/kinect_sensor.stl" scale="0.01 0.01 0.01"/>
+				</geometry>
+				<material name="black"/>
+			</visual>
+		</link>
+
+		<joint name="base_link_to_kinect" type="continuous">
+			<parent link="base_link"/>
+			<child link="kinect"/>
+			<origin xyz="-0.0065 0 0.139"/>
+			<axis xyz="0 1 0"/>
+		</joint>	
+		
+	</robot>
