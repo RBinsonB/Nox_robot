@@ -1,0 +1,42 @@
+shader "top_name"  "top_mtl"  
+(
+	 "num_cols"  1 ,
+	 "illum"  "model_5.p2a" 
+)
+
+material "iii"  "swt_main_phen"  
+(
+	 "col1"  0.988235 0.984314 1 ,
+	 "col2"  0 0 0 ,
+	 "col3"  0 0 0 ,
+	 "pattern_scale"  0 ,
+	 "ambient_factor"  0 ,
+	 "diffuse_factor"  1 ,
+	 "specular_factor"  0.76 ,
+	 "specular_color"  1 0.960784 0.909804 ,
+	 "exponent"  500 ,
+	 "reflectivity"  0.15 ,
+	 "mtl_ior"  1 ,
+	 "transparency"  0 ,
+	 "anisotropic_u"  0 ,
+	 "anisotropic_v"  0 ,
+	 "anisotropic_courseness"  0 ,
+	 "metallic_mix"  0 ,
+	 "metallic_roughness"  0.002 ,
+	 "metallic_scale"  0 ,
+	 "metallic_amplitude"  0 ,
+	 "metallic_flake_type"  0 ,
+	 "metallic_ior"  0 0 0 ,
+	 "metallic_color"  0 0 0 ,
+	 "ambience"  1 1 1 ,
+	 "amplitude"  0 ,
+	 "scale"  1e-006 ,
+	 "detail"  1 ,
+	 "sharpness"  1 ,
+	 "blend"  0 ,
+	 "radius"  0.02 ,
+	 "mode"  0 ,
+	 "decal_val"  0 0 0 ,
+	 "sw_shader" porcelain
+)
+end material 

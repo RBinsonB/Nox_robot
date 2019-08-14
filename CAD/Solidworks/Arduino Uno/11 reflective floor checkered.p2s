@@ -1,0 +1,38 @@
+lighting custom
+"11 reflective floor checkered.p2l"
+shadow 
+opaque 0 0
+environment 
+showroom 
+north nonvisible nonreflective "Materials\plastic\high gloss\default plastic.p2m"
+without_mapping
+south nonvisible nonreflective "Materials\plastic\high gloss\default plastic.p2m"
+without_mapping
+east nonvisible nonreflective "Materials\plastic\high gloss\default plastic.p2m"
+without_mapping
+west nonvisible nonreflective "Materials\plastic\high gloss\default plastic.p2m"
+without_mapping
+ceiling nonvisible nonreflective "Materials\plastic\high gloss\default plastic.p2m"
+without_mapping
+floor visible reflective "Materials\miscellaneous\studio materials\checker_floor_bright.p2m"
+without_mapping
+end_textures
+offset 0.0
+end_positions
+model xz_plane
+background
+image "Images\textures\background\snowcloud.png"
+reflective
+background_environment 
+image "\images\textures\background\kitchen.hdr" 
+spherical_env 
+environment_multipliers 1.000000 0.50000
+sw_scene_rotating_envmap 1
+pv_background_image_brightness 1.0 
+pv_rendering_brightness 2.0 
+pv_scene_reflectivity 2.0
+custom_mapped_floor_material
+custom_floor_tex_scale 15.0 15.0 
+custom_floor_tex_trans 0.5 0.5 
+custom_floor_tex_ang 0.0 
+end 

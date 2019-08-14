@@ -1,0 +1,26 @@
+shader "top_name"  "top_mtl"  
+(
+	 "num_cols"  2 ,
+	 "illum"  "model_car_paint.p2a" 
+)
+
+material "iii"  "swt_main_phen"  
+(
+	 "col1"  0.97 0.88 0.60 ,
+	 "col2"  1.00 0.81 0.50 ,
+	 "pattern_scale"  0 ,
+	 "ambient_factor"  0 ,
+	 "diffuse_factor"  0.3 ,
+	 "specular_factor"  1 ,
+	 "specular_color"  1 0.976471 0.843137 ,
+	 "exponent" 50 ,
+	 "reflectivity"  0.3 ,
+	 "amplitude"  0 ,
+	 "scale"  1e-006 ,
+	 "detail"  1 ,
+	 "sharpness"  1 ,
+	 "rough_high"  1 ,
+	 "rough_low"  0 ,
+	 "sw_shader" polishedgold
+)
+end material 

@@ -1,0 +1,46 @@
+shader "top_name"  "top_mtl"  
+(
+	 "num_cols"  2 ,
+	 "illum"  "model_4.p2a" 
+)
+
+material "iii"  "swt_main_phen"  
+(
+	 "col1"  0.87 0.91 1.00  ,
+	 "col2"  0.90 0.92 0.93 ,
+	 "pattern_scale"  0 ,
+	 "fast_glossy"  on ,
+	 "ambient_factor"  0 ,
+	 "diffuse_factor"  0.3 ,
+	 "specular_factor"  0 ,
+	 "specular_color"  1 1 1 ,
+	 "glossy_factor"  0.4 ,
+	 "exponent"  20 ,
+	 "reflectivity"  0.8 ,
+	 "mtl_ior"  1 ,
+	 "transparency"  0 ,
+	 "anisotropic_u"  0 ,
+	 "anisotropic_v"  0 ,
+	 "anisotropic_courseness"  0.8 ,
+	 "metallic_mix"  0 ,
+	 "metallic_roughness"  0.002 ,
+	 "metallic_scale"  0 ,
+	 "metallic_amplitude"  0 ,
+	 "metallic_flake_type"  0 ,
+	 "metallic_ior"  0 0 0 ,
+	 "metallic_color"  0 0 0 ,
+	 "ambience"  1 1 1 ,
+	 "amplitude"  0 ,
+	 "scale"  1e-006 ,
+	 "detail"  1 ,
+	 "sharpness"  1 ,
+	 "blend"  1 ,
+	 "radius"  1 ,
+	 "rough_high"  1 ,
+	 "rough_low"  0 ,
+	 "mode"  0 ,
+	 "decal_val"  0 0 0 ,
+	 "n_samples" 8 ,
+	 "sw_shader" satinfinishaluminum
+)
+end material 

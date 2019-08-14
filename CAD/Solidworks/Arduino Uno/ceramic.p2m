@@ -1,0 +1,56 @@
+shader "top_name"  "top_mtl"  
+(
+ 	 "num_cols"  1 ,
+	 "illum" "model_2.p2a"
+)
+ 
+material "iii"  "swt_main_phen"  
+(
+ 	 "col1"  1 0.94902 0.898039 ,
+	 "col2"  0 0 0 ,
+	 "col3"  0 0 0 ,
+	 "pattern_scale"  0 ,
+	 "scale"  0 ,
+	 "amplitude"  0 ,
+	 "detail"  0 ,
+	 "sharpness"  0 ,
+	 "blend"  0 ,
+	 "radius"  0 ,
+	 "ambience"  0.5 0.5 0.5 ,
+	 "ambient_factor"  1 ,
+	 "diffuse_factor"  0.7 ,
+	 "specular_color"  1 1 1 ,
+	 "specular_factor"  0 ,
+	 "exponent"  1000 ,
+	 "mode"  0 ,
+	 "transparency"  0 ,
+	 "reflectivity"  0 ,
+	 "mtl_ior"  1 ,
+	 "metallic_mix"  0 ,
+	 "metallic_roughness"  0 ,
+	 "metallic_scale"  0 ,
+	 "metallic_amplitude"  0 ,
+	 "metallic_flake_type"  0 ,
+	 "metallic_ior"  0 0 0 ,
+	 "metallic_color"  0 0 0 ,
+	 "anisotropic_u"  0 ,
+	 "anisotropic_v"  0 ,
+	 "anisotropic_courseness"  0 ,
+	 "select"  0 ,
+	 "project"  0 ,
+	 "selspace"  0 ,
+	 "transform" 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ,
+	 "repeat"  0 0 0 ,
+	 "alt_x"  off ,
+	 "alt_y"  off ,
+	 "alt_z"  off ,
+	 "torus_x"  off ,
+	 "torus_y"  off ,
+	 "torus_z"  off ,
+	 "min"  0 0 0 ,
+	 "max"  0 0 0 ,
+	 "decal_val"  0 0 0 ,
+	 "sw_shader" ceramic
+)
+ 
+end material 

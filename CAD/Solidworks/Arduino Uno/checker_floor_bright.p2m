@@ -1,0 +1,28 @@
+color texture "color_texname" "Images\textures\pattern\checker3.jpg"
+
+shader "top_name"  "top_mtl"  
+(
+	 "num_cols"  1 ,
+	 "illum"  "model_3.p2a" 
+	 "transparency_effect" "floor_falloff.p2a", 
+	 "color_effect"	"2d.p2a", 
+)
+
+material "iii"  "swt_main_phen"  
+(
+	 "holes" 3,
+	 "scale"  1,
+	 "blend"  1.0 ,
+	 "radius"  1 ,
+	 "col1"  0.917647 0.917647 0.917647 ,
+	 "ambient_factor"  0.0 ,
+	 "diffuse_factor"  1.0 ,
+	 "specular_factor"  0.0 ,
+	 "specular_color"  1 1 1 ,
+	 "exponent"  20.0 ,
+	 "reflectivity"  0.8 ,
+	 "transparency"  0 ,
+         "ctex" "color_texname", 
+	 "sw_shader" checker_floor_bright
+)
+end material 

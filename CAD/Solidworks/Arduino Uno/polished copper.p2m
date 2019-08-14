@@ -1,0 +1,28 @@
+shader "top_name"  "top_mtl"  
+(
+	 "num_cols"  2 ,
+	 "illum"  "model_car_paint.p2a" 
+)
+
+material "iii"  "swt_main_phen"  
+(
+	 "col1"  .54 0.35 0.34 ,
+	 "col2"  .84 0.47 0.37 ,
+	 "pattern_scale"  0 ,
+	 "ambient_factor"  0 ,
+	 "diffuse_factor"  0.3 ,
+	 "specular_factor"  0.85 ,
+	 "specular_color"  0.992157 0.894118 0.709804 ,
+	 "exponent" 50 ,
+	 "reflectivity"  0.25 ,
+	 "amplitude"  0 ,
+	 "scale"  1e-006 ,
+	 "detail"  1 ,
+	 "sharpness"  1 ,
+	 "metallic_flake_type" 1 ,
+	 "metallic_mix" 0 ,
+	 "rough_high"  1 ,
+	 "rough_low"  0 ,
+	 "sw_shader" polishedcopper
+)
+end material 

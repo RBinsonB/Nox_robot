@@ -1,0 +1,20 @@
+shader "top_name"  "top_mtl"  
+(
+	 "num_cols"  2 ,
+	 "illum"  "model_car_paint.p2a" 
+)
+
+material "iii"  "swt_main_phen"  
+(
+	 "col1"  0.67 0.70 0.77 ,
+	 "col2"  0.90 0.92 0.93 ,
+	 "pattern_scale"  0 ,
+	 "ambient_factor"  0 ,
+	 "diffuse_factor"  0.3 ,
+	 "specular_factor"  0.85 ,
+	 "specular_color"  1 1 1 ,
+	 "exponent"  50 ,
+	 "reflectivity"  0.25 ,
+	 "sw_shader" polishedaluminum
+)
+end material 
