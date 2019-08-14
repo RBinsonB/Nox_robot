@@ -13,8 +13,6 @@
 const byte noCommLoopMax = 10;                //number of main loops the robot will execute without communication before stopping
 unsigned int noCommLoops = 0;                 //main loop without communication counter
 
-char log_msg[50];
-char result[8];
 double speed_cmd_left2 = 0;      
 
 const int PIN_ENCOD_A_MOTOR_LEFT = 2;               //A channel for encoder of left motor                    

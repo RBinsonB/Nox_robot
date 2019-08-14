@@ -10,7 +10,6 @@
 	
 	<node name="serial_node" pkg="rosserial_python" type="serial_node.py">
 		<param name="port" value="/dev/ttyACM0"/>
-		<output="screen"/>
 	</node>
 		
 	<node name="nox_controller" pkg="nox" type="nox_controller">
