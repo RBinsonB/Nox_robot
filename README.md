@@ -19,10 +19,9 @@ More information (such as components used) can be found in the [Hackster page of
 * #### nox_description:
 This package includes the URDF description of the robot and the associated CAD files for display in RViz. The launch file "nox_rviz.launch" launches the joint and robot state publisher as well as RViz to display the model.
 * #### nox:
-This package includes the base controller node "nox_controller.cpp". This node will convert velocity command data into proper command data for the robot (according to the robot kinematic model) and send it to the Arduino Mega (through ROSSerial). The package also includes several launch files used to start the navigation (see "How to use Nox" below).
+This package includes the base controller node "nox_controller.cpp". This node will convert velocity command data into proper command data for the robot (according to the robot kinematic model) and send it to the Arduino Mega (through ROSSerial). It also computes the odometry (with the encoder data and according to the robot kinematic model) from data received from the Arduino Mega. The package also includes several launch files used to start the navigation (see "How to use Nox" below).
 * #### Arduino:
-The arduino node receives the command order from the base controller node and commands the motor speeds. It also computes the odometry data (from the encoder data and according to the robot kinematic model) and send it back to other nodes through ROSSerial.
-
+The arduino node receives the command order from the base controller node and commands the motor speeds. It also sends back the encoder data needed for the odometry to the controller node through ROSSerial.
 
 ## How to use Nox
 ### Packages installation
