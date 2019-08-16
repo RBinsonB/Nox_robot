@@ -34,6 +34,7 @@ The software for the Nox project was developped with ROS Kinetic and Ubuntu 16.0
 * [TF](http://wiki.ros.org/tf), [Joint State](http://wiki.ros.org/joint_state_publisher) and [Robot State](http://wiki.ros.org/robot_state_publisher) Publishers
 * [ROSSerial package](http://wiki.ros.org/rosserial) (for connecting to the Arduino Mega)
 * [SLAM gmapping](https://wiki.ros.org/slam_gmapping).
+* [TEB local planner](https://wiki.ros.org/teb_local_planner).
 
 #### Installation
 You can install and build the package by copying the "nox" and "nox_description" folders in "your_catkin_workspace/src" and running:
