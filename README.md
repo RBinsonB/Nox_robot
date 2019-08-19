@@ -37,7 +37,7 @@ The software for the Nox project was developped with ROS Kinetic and Ubuntu 16.0
 * [TEB local planner](https://wiki.ros.org/teb_local_planner).
 
 #### Installation
-You can install and build the package by copying the "nox" and "nox_description" folders in "your_catkin_workspace/src" and running:
+You can install and build the package by copying the "nox" and "nox_description" folders in "your_catkin_workspace/src" on both your computer and the Raspberry Pi and running:
   ```
   catkin_make
   ```
