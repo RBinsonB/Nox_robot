@@ -24,8 +24,13 @@ const int PIN_ENCOD_B_MOTOR_RIGHT = 5;              //B channel for encoder of r
 const int PIN_SIDE_LIGHT_LED = 46;                  //Side light blinking led pin
 
 unsigned long lastMilli = 0;
+
+//--- Robot-specific constants ---
 const double radius = 0.04;                   //Wheel radius, in m
 const double wheelbase = 0.187;               //Wheelbase, in m
+const double encoder_cpr = 990                //Encoder ticks or counts per rotation
+const double speed_to_pwm_ratio = 0.00235     //Ratio to convert speed (in m/s) to PWM value. It was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the slope of the linear function).
+const double min_speed_cmd = 0.0882           //(min_speed_cmd/speed_to_pwm_ratio) is the minimum command value needed for the motor to start moving. This value was obtained by plotting the wheel speed in relation to the PWM motor command (the value is the constant of the linear function).
 
 double speed_req = 0;                         //Desired linear speed for the robot, in m/s
 double angular_speed_req = 0;                 //Desired angular speed for the robot, in rad/s
@@ -154,22 +159,23 @@ void loop() {
       speed_act_left = 0;
     }
     else {
-      speed_act_left=((pos_left/990)*2*PI)*(1000/LOOPTIME)*radius;           // calculate speed of left wheel
+      speed_act_left=((pos_left/encoder_cpr)*2*PI)*(1000/LOOPTIME)*radius;           // calculate speed of left wheel
     }
     
     if (abs(pos_right) < 5){                                                  //Avoid taking in account small disturbances
       speed_act_right = 0;
     }
     else {
-    speed_act_right=((pos_right/990)*2*PI)*(1000/LOOPTIME)*radius;          // calculate speed of right wheel
+    speed_act_right=((pos_right/encoder_cpr)*2*PI)*(1000/LOOPTIME)*radius;          // calculate speed of right wheel
     }
     
     pos_left = 0;
     pos_right = 0;
 
     speed_cmd_left = constrain(speed_cmd_left, -max_speed, max_speed);
-    PID_leftMotor.Compute();                                                 // compute PWM value for left motor
-    PWM_leftMotor = constrain(((speed_req_left+sgn(speed_req_left)*0.0882)/0.00235) + (speed_cmd_left/0.00235), -255, 255); //
+    PID_leftMotor.Compute();                                                 
+    // compute PWM value for left motor. Check constant definition comments for more information.
+    PWM_leftMotor = constrain(((speed_req_left+sgn(speed_req_left)*min_speed_cmd)/speed_to_pwm_ratio) + (speed_cmd_left/speed_to_pwm_ratio), -255, 255); //
     
     if (noCommLoops >= noCommLoopMax) {                   //Stopping if too much time without command
       leftMotor->setSpeed(0);
@@ -189,8 +195,9 @@ void loop() {
     }
     
     speed_cmd_right = constrain(speed_cmd_right, -max_speed, max_speed);    
-    PID_rightMotor.Compute();                                                 // compute PWM value for right motor
-    PWM_rightMotor = constrain(((speed_req_right+sgn(speed_req_right)*0.0882)/0.00235) + (speed_cmd_right/0.00235), -255, 255); // 
+    PID_rightMotor.Compute();                                                 
+    // compute PWM value for right motor. Check constant definition comments for more information.
+    PWM_rightMotor = constrain(((speed_req_right+sgn(speed_req_right)*min_speed_cmd)/speed_to_pwm_ratio) + (speed_cmd_right/speed_to_pwm_ratio), -255, 255); // 
 
     if (noCommLoops >= noCommLoopMax) {                   //Stopping if too much time without command
       rightMotor->setSpeed(0);
