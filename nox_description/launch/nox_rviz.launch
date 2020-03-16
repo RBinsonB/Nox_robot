@@ -1,9 +1,14 @@
 <launch>
 	<arg name="gui" default="True" />
-	<param name="use_gui" value="$(arg gui)"/>
+
 	<param name="robot_description" command="cat $(find nox_description)/urdf/nox.urdf" />
 	
-	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+        <group if="$(arg gui)">
+        	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+	</group>
+        <group unless="$(arg gui)">
+		<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	</group>
 	
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 	

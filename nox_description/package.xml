@@ -16,6 +16,8 @@
   <build_export_depend>robot_state_publisher</build_export_depend>
   <build_export_depend>urdf</build_export_depend>
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>urdf</exec_depend>
 
 </package>
